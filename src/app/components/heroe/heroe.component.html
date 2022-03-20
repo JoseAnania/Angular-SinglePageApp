@@ -1,0 +1,33 @@
+<!-- Este HTML contiene estilos de cada HEROE (se llamara desde el TEMPLATE del HEROE.COMPONENT.TS)-->
+
+<!-- mostramos el nombre y la fecha del HEROE declarado según id declarado en HEROE.COMPONENT.TS (utilizando PIPES)-->
+<h1 class="animated fadeIn">{{ heroe.nombre | uppercase }} <small>({{ heroe.aparicion | date: 'y'}})</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <!-- mostramos la foto y la bio de cada HEROE -->
+        <img [src]="heroe.img" class="img-fluid" [alt]="heroe.nombre">
+        <br><br>
+
+        <!-- botón para regresar a la página de HEROES con ROUTER LINK -->
+        <a [routerLink]="['/heroes']" class="btn btn-outline-danger" style="width: 100%;">Regresar</a>
+
+    </div>
+
+    <div class="col-md-8">
+
+        <!-- mostramos el nombre, la bio y una imagen de la casa a la que pertenece según ID del cada HEROE seleccionado -->
+        <h3> {{ heroe.nombre }} </h3>
+        <hr>
+        <p>
+            {{ heroe.bio }}
+        </p>
+        <div>
+            <!-- usamos NG IF para seleccionar la imagen de la casa a la que pertenece el HEROE -->
+            <img *ngIf="heroe.casa == 'Marvel'" src="assets/img/marvel.png" alt="MARVEL">
+            <img *ngIf="heroe.casa == 'DC'" src="assets/img/dc.png" alt="DC">
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+<!-- Este HTML contiene estilos del HEROES (se llamara desde el TEMPLATE del HEROES.COMPONENT.TS)-->
+
+<h1> Héroes <small>Marvel y DC</small></h1>
+<hr>
+
+<!-- BOOTSTRAP -->
+<div class="row row-cols-1 row-cols-md-3">
+
+    <!-- TARJETAS: usamos el NG FOR para mostrar todos los HEROES y sus datos (según INTERFACE o lo que es lo mismo el modelo de HEROE) -->
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+        <img [src]="heroe.img" class="card-img-top img-fluid" [alt]="heroe.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{ heroe.nombre }}</h5>
+          <p class="card-text">{{ heroe.bio }}</p>
+          <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+
+          <!-- BOTON: Redireccionamos con ROUTERLINK a la página de cada HEROE -->
+          <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary" style="width: 100%;">Ver más...</a>
+
+        </div>
+      </div>
+
+</div>
